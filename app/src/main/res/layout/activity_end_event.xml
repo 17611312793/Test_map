@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true">
+
+    <!--结束事件-->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/item_tobar_title"/>
+            <RelativeLayout
+                android:id="@+id/event_type"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/titles"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_mmp4"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:text="事件类型："
+                    android:textColor="@color/item_font"
+                    android:textSize="14sp"
+                    android:paddingLeft="10dp"
+                    />
+
+                <EditText
+                    android:id="@+id/ed_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@id/tv_type"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:paddingRight="30dp"
+                    android:text="泥石流阻断交通"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:paddingRight="10dp"
+                    android:src="@mipmap/bottom" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/event_type"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_mmp4"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:text="所在位置："
+                    android:textColor="@color/item_font"
+                    android:textSize="14sp"
+                    android:paddingLeft="10dp"
+                    />
+
+                <EditText
+                    android:id="@+id/ed_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@id/tv_address"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:paddingRight="30dp"
+                    android:text="龙潭路与迎宾路交口"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:paddingRight="10dp"
+                    android:src="@mipmap/location1" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/start_time"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/event_type"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_mmp4"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_start_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:text="开始时间："
+                    android:textColor="@color/item_font"
+                    android:textSize="14sp"
+                    android:paddingLeft="10dp"
+                    />
+
+                <EditText
+                    android:id="@+id/ed_start_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@id/tv_start_time"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:paddingRight="30dp"
+                    android:text="2018-04-16 15:30:26"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/end_time"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/event_type"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_mmp4"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_end_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:text="结束时间："
+                    android:textColor="@color/item_font"
+                    android:textSize="14sp"
+                    android:paddingLeft="10dp"
+                    />
+
+                <EditText
+                    android:id="@+id/ed_end_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@id/tv_end_time"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:paddingRight="30dp"
+                    android:text="2018-04-16 15:30:26"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="参与人员名单"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:paddingLeft="15dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="18dp"
+                />
+            <EditText
+                android:id="@+id/et_list_of_participants"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@drawable/ed_new_event"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="领导决断"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:paddingLeft="15dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="18dp"
+                />
+            <EditText
+                android:id="@+id/et_leadership_decisions"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@drawable/ed_new_event"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="采取措施"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:paddingLeft="15dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="18dp"
+                />
+            <EditText
+                android:id="@+id/et_take_steps"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@drawable/ed_new_event"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="调用资源"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:paddingLeft="15dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="18dp"
+                />
+
+            <RelativeLayout
+                android:id="@+id/vehicle"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/event_type"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_mmp4"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_vehicle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:text="车辆："
+                    android:textColor="@color/item_font"
+                    android:textSize="14sp"
+                    android:paddingLeft="10dp"
+                    />
+
+                <EditText
+                    android:id="@+id/ed_vehicle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@id/tv_vehicle"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:paddingRight="30dp"
+                    android:text="2018-04-16 15:30:26"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/material"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/event_type"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_mmp4"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_material"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:text="物资："
+                    android:textColor="@color/item_font"
+                    android:textSize="14sp"
+                    android:paddingLeft="10dp"
+                    />
+
+                <EditText
+                    android:id="@+id/ed_material"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@id/tv_material"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:paddingRight="30dp"
+                    android:text="2018-04-16 15:30:26"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="过程详述"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:paddingLeft="15dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="18dp"
+                />
+            <EditText
+                android:id="@+id/et_process_details"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:background="@drawable/ed_new_event"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="时间总结"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:paddingLeft="15dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="18dp"
+                />
+            <EditText
+                android:id="@+id/et_time_summary"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@drawable/ed_new_event"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                />
+
+            <Button
+                android:id="@+id/bt_commit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_mmp1"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="提交"
+                android:textColor="@color/white"
+                android:textSize="16sp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

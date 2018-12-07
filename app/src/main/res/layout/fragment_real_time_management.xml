@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#FFE8E8"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="14dp"
+            android:src="@mipmap/message" />
+
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="川藏公路多处路段都不同程度受到雨水的侵蚀，易发塌方和泥石流灾害，为保证过往人员自身安全，请尽量避免近段时间出行。"
+            android:textColor="#ffff0000"
+            android:textSize="14sp" />
+
+
+    </LinearLayout>
+
+    <include layout="@layout/item_real_time_management01" />
+
+    <include layout="@layout/item_real_time_management03" />
+
+    <include layout="@layout/item_real_time_management02" />
+
+</LinearLayout>

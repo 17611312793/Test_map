@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+    <!--历史事件详情-->
+    <include layout="@layout/item_tobar_title" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="事件类型："
+                    android:textColor="@color/item_font"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_event_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="泥石流阻断交通"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="所在位置："
+                    android:textColor="@color/item_font"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_event"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="龙潭路与迎宾路交口"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="开始时间："
+                    android:textColor="@color/item_font"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_starttime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="2018-04-16  15:30:26"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="结束时间："
+                    android:textColor="@color/item_font"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_endtime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="2018-04-18  16:20:10"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <include layout="@layout/view_line" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:text="参与人员名单"
+                android:textColor="@color/item_font"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_participant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="20dp"
+                android:text="周天、池卓倪、焦宇翔、叶皓天、胡云棚、叶安宁、叶奇、黄哲宇、洪昊、赵子瑜、宋嘉瑞、黄柏贺、郭子棋、张坤隆"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <include layout="@layout/view_line" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:text="领导决断"
+                android:textColor="@color/item_font"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_leader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="20dp"
+                android:text="武警交通二支队政治委员江清华提醒过往司乘，此次长时间的降雨，川藏公路多处路段都不同程度受到雨水的侵蚀，易发塌方和泥石流灾害，为保证过往人员自身安全，请尽量避免近段时间出行，直至受灾道路全部抢通为止。"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <include layout="@layout/view_line" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:text="采取措施"
+                android:textColor="@color/item_font"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_takesteps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="20dp"
+                android:text="截至20日上午11时，该支队八中队累计出动兵力52人次，装载机、油罐车、运兵车等16台套；累计疏散车辆1500余台、人员5000余人。目前，由于降雨持续不断，该支队八中队派出1台装载机和5名官兵驻守在乱石滩附近，随时做好抢通准备。"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <include layout="@layout/view_line" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:text="调用资源"
+                android:textColor="@color/item_font"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="车辆："
+                    android:textColor="@color/item_font"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_car"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="3辆"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="物资："
+                    android:textColor="@color/item_font"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_material"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:paddingBottom="20dp"
+                    android:text="木板10件"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <include layout="@layout/view_line" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:text="过程详述"
+                android:textColor="@color/item_font"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_processdetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="20dp"
+                android:text="19日18时许，川藏公路林芝境内玉普乡K3974处突发大型泥石流灾害。当晚21时，玉普乡境内K3951+750处发生泥石流，方量约为2000余方，受泥石流影响导致大量巨石被冲刷在道路中央，导致40余台车辆，100余人被困。
+
+　　与此同时，19日20时，川藏公路通麦段K4116+380处、K4119+200、K4099+600也突发大规模泥石流，致使位于此路段的卓玛中桥被泥石流淹没，排龙沟0#号钢架桥被泥石流冲毁，导致川藏公路通麦段交通中断，造成660台车辆、1600余人被困。"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <include layout="@layout/view_line" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:text="时间总结"
+                android:textColor="@color/item_font"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_timesummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="20dp"
+                android:text="当晚21时，玉普乡境内K3951+750处发生泥石流，方量约为2000余方，受泥石流影响导致大量巨石被冲刷在道路中央，导致40余台车辆，100余人被困。
+
+　　与此同时，19日20时，川藏公路通麦段K4116+380处、K4119+200、K4099+600也突发大规模泥石流，致使位于此路段的卓玛中桥被泥石流淹没，排龙沟0#号钢架桥被泥石流冲毁，导致川藏公路通麦段交通中断，造成660台车辆、1600余人被困。"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <include layout="@layout/view_line" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
