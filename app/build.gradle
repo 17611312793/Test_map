@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.zlt.test_map"
-        minSdkVersion 21
+        minSdkVersion 17
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -36,7 +36,7 @@ dependencies {
     //2D地图
     implementation 'com.amap.api:map2d:latest.integration'
     //定位
-//    implementation 'com.amap.api:location:latest.integration'
+    implementation 'com.amap.api:location:latest.integration'
     //网络框架
     implementation 'com.squareup.okhttp3:okhttp:3.6.0'
     implementation 'com.google.code.gson:gson:2.8.0'
@@ -63,6 +63,5 @@ dependencies {
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
     //SImagePicker
     implementation 'com.github.martin90s:ImagePicker:v1.3.2'
-    implementation files('libs/AMap3DMap_6.2.0_AMapNavi_6.1.0_AMapSearch_6.1.0_AMapLocation_4.0.1_20180427.jar')
 
 }

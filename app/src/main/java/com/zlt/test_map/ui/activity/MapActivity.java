@@ -22,10 +22,10 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.amap.api.maps.AMap;
-import com.amap.api.maps.MapView;
-import com.amap.api.maps.model.Marker;
-import com.amap.api.maps.model.MyLocationStyle;
+import com.amap.api.maps2d.AMap;
+import com.amap.api.maps2d.MapView;
+import com.amap.api.maps2d.model.Marker;
+import com.amap.api.maps2d.model.MyLocationStyle;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.zlt.test_map.MainActivity;
 import com.zlt.test_map.R;
@@ -44,7 +44,6 @@ import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-//import com.amap.api.maps2d.MapView;
 
 /***
  * 电子地图
@@ -101,16 +100,6 @@ public class MapActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
         ButterKnife.bind(this);
-//        //获取地图控件引用
-//        mMapView = (MapView) findViewById(R.id.map);
-//        //在activity执行onCreate时执行mMapView.onCreate(savedInstanceState)，创建地图
-//        mMapView.onCreate(savedInstanceState);
-//        //初始化地图控制器对象
-//        if (aMap == null) {
-//            aMap = mMapView.getMap();
-//        }
-
-        //这里以ACCESS_COARSE_LOCATION为例
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             //申请WRITE_EXTERNAL_STORAGE权限
@@ -181,24 +170,25 @@ public class MapActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.GoBack://返回键
-                if (flag == false) {
-                    flag = true;
-                    btTotal.setVisibility(View.VISIBLE);
-                    mapTab.setVisibility(View.VISIBLE);
-                    queryLine.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-                    mapPlanningLine.setBackgroundColor(getResources().getColor(R.color.transparent));
-                    queryText.setTextColor(getResources().getColor(R.color.colorAccent));
-                    mapPlanningText.setTextColor(getResources().getColor(R.color.black));
-                    addLine.setBackgroundColor(getResources().getColor(R.color.transparent));
-                    addText.setTextColor(getResources().getColor(R.color.black));
-                    make.setImageResource(R.mipmap.make);
-                } else {
-                    flag = false;
-                    finish();
-                }
+//                if (flag == false) {
+//                    flag = true;
+//                    btTotal.setVisibility(View.VISIBLE);
+//                    mapTab.setVisibility(View.VISIBLE);
+//                    queryLine.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+//                    mapPlanningLine.setBackgroundColor(getResources().getColor(R.color.transparent));
+//                    queryText.setTextColor(getResources().getColor(R.color.colorAccent));
+//                    mapPlanningText.setTextColor(getResources().getColor(R.color.black));
+//                    addLine.setBackgroundColor(getResources().getColor(R.color.transparent));
+//                    addText.setTextColor(getResources().getColor(R.color.black));
+//                    make.setImageResource(R.mipmap.make);
+//                } else {
+//                    flag = false;
+//                    finish();
+//                }
+                finish();
                 break;
             case R.id.close://关闭当前页面
-                finish();
+                etSearch.setText("");
                 break;
             case R.id.bt_total://汇总
 //                ChoiceTownshipDialog myDialog = new ChoiceTownshipDialog(this);
@@ -316,9 +306,7 @@ public class MapActivity extends AppCompatActivity {
                 queryText.setTextColor(getResources().getColor(R.color.black));
                 addLine.setBackgroundColor(getResources().getColor(R.color.transparent));
                 addText.setTextColor(getResources().getColor(R.color.black));
-                btTotal.setVisibility(View.GONE);
-                mapTab.setVisibility(View.GONE);
-                make.setImageResource(R.mipmap.make1);
+                startActivity(new Intent(MapActivity.this, PathPlanningActivity.class));
                 break;
             case R.id.add://新增
                 addLine.setBackgroundColor(getResources().getColor(R.color.colorAccent));

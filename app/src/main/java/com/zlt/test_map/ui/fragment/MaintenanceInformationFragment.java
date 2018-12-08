@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.amap.api.maps.AMap;
-import com.amap.api.maps.MapView;
+import com.amap.api.maps2d.AMap;
+import com.amap.api.maps2d.MapView;
 import com.zlt.test_map.R;
 import com.zlt.test_map.bean.RepairBean;
 import com.zlt.test_map.ui.activity.PendingAcceptancTesk01Activity;

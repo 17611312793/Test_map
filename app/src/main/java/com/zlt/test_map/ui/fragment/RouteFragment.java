@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.zlt.test_map.R;
@@ -26,7 +27,6 @@ import com.zlt.test_map.bean.SupplierBean;
 import com.zlt.test_map.ui.activity.PendingAcceptanceTaskActivity;
 import com.zlt.test_map.ui.adapter.CuringShowAdapter;
 import com.zlt.test_map.ui.adapter.SupplierAdapter;
-import com.zlt.test_map.ui.map.ToastUtil;
 import com.zlt.test_map.utile.RetrofitUtils;
 
 import org.greenrobot.eventbus.EventBus;
@@ -143,7 +143,7 @@ public class RouteFragment extends Fragment {
                                 if (code == 200) {
                                     List<CuringShowBean.DataBean.ListBean> data = adapter.data();
                                     if (data.isEmpty()) {
-                                        ToastUtil.show(getContext(), "");
+                                        Toast.makeText(getContext(),"",Toast.LENGTH_SHORT).show();
                                     }
                                     Intent intent = new Intent(getContext(), PendingAcceptanceTaskActivity.class);
                                     intent.putExtra("condition_id", condition_id);

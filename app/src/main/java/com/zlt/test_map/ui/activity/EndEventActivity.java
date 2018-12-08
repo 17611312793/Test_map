@@ -4,11 +4,12 @@ import android.content.Intent;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.zlt.test_map.R;
 import com.zlt.test_map.base.BaseActivity;
 import com.zlt.test_map.bean.CompletedBean;
-import com.zlt.test_map.ui.map.ToastUtil;
+//import com.zlt.test_map.ui.map.ToastUtil;
 import com.zlt.test_map.utile.RetrofitUtils;
 
 import butterknife.BindView;
@@ -99,7 +100,7 @@ public class EndEventActivity extends BaseActivity {
                         if (code == 200) {
                             startActivity(new Intent(EndEventActivity.this, HistoryEventDetailsActivity.class));
                         } else {
-                            ToastUtil.show(EndEventActivity.this, completedBean.getMsg());
+                            Toast.makeText(EndEventActivity.this, completedBean.getMsg(),Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

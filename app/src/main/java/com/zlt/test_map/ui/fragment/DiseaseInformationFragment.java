@@ -10,8 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.amap.api.maps.AMap;
-import com.amap.api.maps.MapView;
+import com.amap.api.maps2d.AMap;
+import com.amap.api.maps2d.MapView;
 import com.zlt.test_map.R;
 
 import butterknife.BindView;

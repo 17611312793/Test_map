@@ -120,24 +120,21 @@ public class PendingAcceptancTesk01Activity extends BaseActivity {
                                                 public void onNext(StartAcceptanceBean startAcceptanceBean) {
                                                     int code = startAcceptanceBean.getCode();
                                                     if (code == 200) {
-                                                        List<StartAcceptanceBean.DataBean.ListaBean> lista = startAcceptanceBean.getData().getLista();
-                                                        StartAcceptanceBean.DataBean.ListbBean listb = startAcceptanceBean.getData().getListb();
-                                                        int id = list.get(position).getId();
+                                                        List<StartAcceptanceBean.DataBean.ListBean> list1 = startAcceptanceBean.getData().getList();
                                                         Intent intent = new Intent(PendingAcceptancTesk01Activity.this, PendingAcceptancTesk03Activity.class);
-                                                        intent.putExtra("area", lista.get(position).getArea());
-                                                        intent.putExtra("ingnum", lista.get(position).getIngnum());
-                                                        intent.putExtra("images", lista.get(position).getImages());
-                                                        intent.putExtra("position1", lista.get(position).getPosition());
-                                                        intent.putExtra("routeclaim", lista.get(position).getRouteclaim());
-                                                        intent.putExtra("routecode", lista.get(position).getRoutecode());
-                                                        intent.putExtra("type", lista.get(id).getType());
-//                                                        intent.putExtra("backup", listb.getBackup());
-//                                                        intent.putExtra("images1", listb.getImages());
-                                                        intent.putExtra("id",list.get(position).getId());
+                                                        intent.putExtra("area", list1.get(position).getArea());
+                                                        intent.putExtra("ingnum", list1.get(position).getIngnum());
+                                                        intent.putExtra("images", list1.get(position).getImages());
+                                                        intent.putExtra("position1", list1.get(position).getPosition());
+                                                        intent.putExtra("routeclaim", list1.get(position).getRouteclaim());
+                                                        intent.putExtra("routecode", list1.get(position).getRoutecode());
+                                                        intent.putExtra("type", list1.get(position).getType());
+                                                        intent.putExtra("backup", list1.get(position).getBackup());
+                                                        intent.putExtra("images1", list1.get(position).getImages());
+                                                        intent.putExtra("id",list1.get(position).getId());
                                                         startActivity(intent);
-                                                        Log.e("TAG",lista.get(position).getRouteclaim());
-                                                        Log.e("TAG",list.get(position).getId()+"");
-                                                        Log.e("TAG",id+"-----");
+                                                        Log.e("TAG",list1.get(position).getRouteclaim());
+                                                        Log.e("TAG",list.get(position).getId()+"****");
 
                                                     }
                                                 }

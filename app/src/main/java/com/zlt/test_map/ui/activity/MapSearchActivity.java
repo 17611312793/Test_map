@@ -18,48 +18,26 @@ import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
-import com.amap.api.maps.AMap;
-import com.amap.api.maps.MapView;
-import com.amap.api.maps.model.LatLng;
-import com.amap.api.maps.model.Marker;
-import com.amap.api.maps.model.MarkerOptions;
-import com.amap.api.maps.model.MyLocationStyle;
-import com.amap.api.services.core.AMapException;
-import com.amap.api.services.core.LatLonPoint;
-import com.amap.api.services.core.PoiItem;
-import com.amap.api.services.geocoder.GeocodeQuery;
-import com.amap.api.services.geocoder.GeocodeResult;
-import com.amap.api.services.geocoder.GeocodeSearch;
-import com.amap.api.services.geocoder.RegeocodeResult;
-import com.amap.api.services.poisearch.PoiResult;
-import com.amap.api.services.poisearch.PoiSearch;
-import com.amap.api.services.route.BusRouteResult;
-import com.amap.api.services.route.DrivePath;
-import com.amap.api.services.route.DriveRouteResult;
-import com.amap.api.services.route.RideRouteResult;
-import com.amap.api.services.route.RouteSearch;
-import com.amap.api.services.route.WalkRouteResult;
+import com.amap.api.maps2d.AMap;
+import com.amap.api.maps2d.MapView;
+import com.amap.api.maps2d.model.Marker;
+import com.amap.api.maps2d.model.MyLocationStyle;
 import com.zlt.test_map.R;
-import com.zlt.test_map.ui.map.DrivingRouteOverlay;
-import com.zlt.test_map.ui.map.ToastUtil;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-//import com.amap.api.maps2d.model.LatLng;
-//import com.amap.api.maps2d.model.MarkerOptions;
 
 /***
  * 地图搜索页面
  */
 
-public class MapSearchActivity extends AppCompatActivity implements RouteSearch.OnRouteSearchListener, AMapLocationListener, GeocodeSearch.OnGeocodeSearchListener {
+public class MapSearchActivity extends AppCompatActivity implements AMapLocationListener {
     MapView mMapView = null;
     AMap aMap;
     @BindView(R.id.et_search)
@@ -93,16 +71,6 @@ public class MapSearchActivity extends AppCompatActivity implements RouteSearch.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_search);
         ButterKnife.bind(this);
-//        //获取地图控件引用
-//        mMapView = (MapView) findViewById(R.id.map);
-//        //在activity执行onCreate时执行mMapView.onCreate(savedInstanceState)，创建地图
-//        mMapView.onCreate(savedInstanceState);
-//        //初始化地图控制器对象
-//        if (aMap == null) {
-//            aMap = mMapView.getMap();
-//        }
-
-        //这里以ACCESS_COARSE_LOCATION为例
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             //申请WRITE_EXTERNAL_STORAGE权限
@@ -148,28 +116,6 @@ public class MapSearchActivity extends AppCompatActivity implements RouteSearch.
             ActivityCompat.requestPermissions(this, arr,
                     100);//自定义的code
         }
-
-
-        //初始化定位
-        mLocationClient = new AMapLocationClient(getApplicationContext());
-        //设置定位回调监听
-        mLocationClient.setLocationListener(this);
-        //初始化AMapLocationClientOption对象
-        mLocationOption = new AMapLocationClientOption();
-        //设置定位模式为AMapLocationMode.Hight_Accuracy，高精度模式。
-        mLocationOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);
-        //获取一次定位结果：
-        //该方法默认为false。
-        mLocationOption.setOnceLocation(false);
-        mLocationOption.setInterval(8000);
-
-        //获取最近3s内精度最高的一次定位结果：
-        //设置setOnceLocationLatest(boolean b)接口为true，启动定位时SDK会返回最近3s内精度最高的一次定位结果。如果设置其为true，setOnceLocation(boolean b)接口也会被设置为true，反之不会，默认为false。
-        mLocationOption.setOnceLocationLatest(false);
-        //给定位客户端对象设置定位参数
-        mLocationClient.setLocationOption(mLocationOption);
-        //启动定位
-        mLocationClient.startLocation();
         initView();
     }
 
@@ -177,114 +123,6 @@ public class MapSearchActivity extends AppCompatActivity implements RouteSearch.
         // 绑定 Marker 被点击事件
         aMap.setOnMarkerClickListener(markerClickListener);
         etSearch.setText("昌平");
-//        //初始化 RouteSearch 对象
-//        RouteSearch routeSearch = new RouteSearch(this);
-//        //设置数据回调监听器
-//        routeSearch.setRouteSearchListener(this);
-//        /***
-//         * 通过 WalkRouteQuery(RouteSearch.FromAndTo fromAndTo, int mode) 设置搜索条件。其中：
-//         *
-//         * fromAndTo，路径的起终点；
-//         * mode，计算路径的模式。SDK提供两种模式：RouteSearch.WALK_DEFAULT 和 RouteSearch.WALK_MULTI_PATH。
-//         */
-//        //初始化query对象，fromAndTo是包含起终点信息，walkMode是步行路径规划的模式
-//        RouteSearch.WalkRouteQuery query = new RouteSearch.WalkRouteQuery(fromAndTo, walkMode);
-//        routeSearch.calculateWalkRouteAsyn(query);//开始算路
-
-
-        // TODO POI检索
-
-//        etSearch.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // TODO POI检索   兴趣点检索
-//                //keyWord表示搜索字符串，
-//                //第二个参数表示POI搜索类型，二者选填其一，选用POI搜索类型时建议填写类型代码，码表可以参考下方（而非文字）
-//                //cityCode表示POI搜索区域，可以是城市编码也可以是城市名称，也可以传空字符串，空字符串代表全国在全国范围内进行搜索
-//                PoiSearch.Query query = new PoiSearch.Query(etSearch.getText().toString(), "", "昌平");
-//                query.setPageSize(50);// 设置每页最多返回多少条poiitem
-//                query.setPageNum(1);//设置查询页码
-//                PoiSearch poiSearch = new PoiSearch(MapSearchActivity.this, query);
-//                poiSearch.setOnPoiSearchListener(new PoiSearch.OnPoiSearchListener() {
-//                    @Override
-//                    public void onPoiSearched(PoiResult poiResult, int i) {
-//                        //搜索结果返回
-//                        ArrayList<PoiItem> pois = poiResult.getPois();
-//                        aMap.clear();//清除之前的标记点
-//                        for (int j = 0; j < pois.size(); j++) {
-//                            PoiItem poiItem = pois.get(j);
-//                            Log.e("TAG", poiItem.getTitle() + "---" + poiItem.getSnippet());
-//                            LatLonPoint latLonPoint = poiItem.getLatLonPoint();//获取具体兴趣点的经纬度
-//                            LatLng latLng = new LatLng(latLonPoint.getLatitude(), latLonPoint.getLongitude());
-//                            final Marker marker = aMap.addMarker(new MarkerOptions().position(latLng).title(poiItem.getTitle()).snippet(poiItem.getSnippet()));
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onPoiItemSearched(PoiItem poiItem, int i) {
-//
-//                    }
-//                });
-//                poiSearch.searchPOIAsyn();//开启搜索
-//
-//
-//            }
-//        });
-
-
-        //获取起点坐标
-        etSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                PoiSearch.Query query = new PoiSearch.Query(etSearch.getText().toString(), "", "大兴");
-                //keyWord表示搜索字符串，
-                //第二个参数表示POI搜索类型，二者选填其一，选用POI搜索类型时建议填写类型代码，码表可以参考下方（而非文字）
-                //cityCode表示POI搜索区域，可以是城市编码也可以是城市名称，也可以传空字符串，空字符串代表全国在全国范围内进行搜索
-                query.setPageSize(50);// 设置每页最多返回多少条poiitem
-                query.setPageNum(1);//设置查询页码
-                PoiSearch poiSearch = new PoiSearch(MapSearchActivity.this, query);
-                poiSearch.setOnPoiSearchListener(new PoiSearch.OnPoiSearchListener() {
-                    @Override
-                    public void onPoiSearched(PoiResult poiResult, int i) {
-                        ArrayList<PoiItem> pois = poiResult.getPois();
-                        aMap.clear();
-                        for (int j = 0; j < pois.size(); j++) {
-                            PoiItem poiItem = pois.get(j);
-                            Log.e("TAG", poiItem.getLatLonPoint().toString() + "--" + poiItem.getTitle() + "--" + poiItem.getSnippet());
-                            LatLonPoint latLonPoint = poiItem.getLatLonPoint();
-                            LatLng latLng = new LatLng(latLonPoint.getLatitude(), latLonPoint.getLongitude());
-                            final Marker marker = aMap.addMarker(new MarkerOptions().position(latLng).title(poiItem.getTitle()).snippet(poiItem.getSnippet()));
-                            GeocodeSearch geocodeSearch = new GeocodeSearch(MapSearchActivity.this);
-
-                            geocodeSearch.setOnGeocodeSearchListener(MapSearchActivity.this);
-                            GeocodeQuery query = new GeocodeQuery(etSearch.getText().toString(), "010");
-
-                            geocodeSearch.getFromLocationNameAsyn(query);
-                        }
-                    }
-
-                    @Override
-                    public void onPoiItemSearched(PoiItem poiItem, int i) {
-
-                    }
-                });
-                poiSearch.searchPOIAsyn();
-            }
-        });
-
-        initSelfLocation();
-    }
-
-    private void initSelfLocation() {
-
-        myLocationStyle = new MyLocationStyle();//初始化定位蓝点样式类myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATION_ROTATE);//连续定位、且将视角移动到地图中心点，定位点依照设备方向旋转，并且会跟随设备移动。（1秒1次定位）如果不设置myLocationType，默认也会执行此种模式。
-        myLocationStyle.interval(60000); //设置连续定位模式下的定位间隔，只在连续定位模式下生效，单次定位模式下不会生效。单位为毫秒。
-        myLocationStyle.myLocationType(MyLocationStyle.LOCATION_TYPE_LOCATION_ROTATE);//连续定位、且将视角移动到地图中心点，定位点依照设备方向旋转，并且会跟随设备移动。（1秒1次定位）默认执行此种模式。
-        aMap.setMyLocationStyle(myLocationStyle);//设置定位蓝点的Style
-//aMap.getUiSettings().setMyLocationButtonEnabled(true);设置默认定位按钮是否显示，非必需设置。
-        aMap.setMyLocationEnabled(true);// 设置为true表示启动显示定位蓝点，false表示隐藏定位蓝点并不进行定位，默认是false。
-        myLocationStyle.showMyLocation(true);
 
     }
 
@@ -373,84 +211,7 @@ public class MapSearchActivity extends AppCompatActivity implements RouteSearch.
     }
 
     @Override
-    public void onBusRouteSearched(BusRouteResult busRouteResult, int i) {//公交车
-
-    }
-
-    @Override
-    public void onDriveRouteSearched(DriveRouteResult result, int errorCode) {//驾驶
-        aMap.clear();// 清理地图上的所有覆盖物
-        if (errorCode == AMapException.CODE_AMAP_SUCCESS) {
-            if (result != null && result.getPaths() != null) {
-                if (result.getPaths().size() > 0) {
-                    final DrivePath drivePath = result.getPaths()
-                            .get(0);
-                    DrivingRouteOverlay drivingRouteOverlay = new DrivingRouteOverlay(
-                            MapSearchActivity.this, aMap, drivePath,
-                            result.getStartPos(),
-                            result.getTargetPos(), null);
-                    drivingRouteOverlay.setNodeIconVisibility(false);//设置节点marker是否显示
-                    drivingRouteOverlay.setIsColorfulline(true);//是否用颜色展示交通拥堵情况，默认true
-                    drivingRouteOverlay.removeFromMap();
-                    drivingRouteOverlay.addToMap();
-                    drivingRouteOverlay.zoomToSpan();
-
-
-                } else if (result != null && result.getPaths() == null) {
-                    ToastUtil.show(MapSearchActivity.this, "对不起，没有搜索到相关数据!");
-                }
-
-            } else {
-                ToastUtil.show(MapSearchActivity.this, "对不起，没有搜索到相关数据!");
-            }
-        } else {
-            ToastUtil.showerror(this.getApplicationContext(), errorCode);
-        }
-    }
-
-    @Override
-    public void onWalkRouteSearched(WalkRouteResult walkRouteResult, int i) {//步行
-
-    }
-
-    @Override
-    public void onRideRouteSearched(RideRouteResult rideRouteResult, int i) {//自行车
-
-    }
-
-    @Override
     public void onLocationChanged(AMapLocation aMapLocation) {
-
-    }
-
-    @Override
-    public void onRegeocodeSearched(RegeocodeResult regeocodeResult, int i) {
-
-    }
-
-    @Override
-    public void onGeocodeSearched(GeocodeResult geocodeResult, int i) {
-        Log.e("TAG222222222", geocodeResult.getGeocodeAddressList().get(0).getLatLonPoint().toString());
-        LatLonPoint latLonPoint = geocodeResult.getGeocodeAddressList().get(0).getLatLonPoint();
-        LatLng latLng = new LatLng(latLonPoint.getLatitude(), latLonPoint.getLongitude());
-        final Marker marker = aMap.addMarker(new MarkerOptions().position(latLng).title("").snippet(""));
-
-        Toast.makeText(MapSearchActivity.this, marker.getPosition().toString() + "--" + marker.getTitle() + "--" + marker.getSnippet(), Toast.LENGTH_SHORT).show();
-        //获取起点坐标
-        Location myLocation = aMap.getMyLocation();
-        LatLonPoint start = new LatLonPoint(myLocation.getLatitude(), myLocation.getLongitude());
-        //获取目的地坐标
-
-        LatLonPoint end = new LatLonPoint(latLonPoint.getLatitude(), latLonPoint.getLongitude());
-
-        //发起路径规划的算路
-        RouteSearch routeSearch = new RouteSearch(MapSearchActivity.this);
-        routeSearch.setRouteSearchListener(MapSearchActivity.this);
-        //fromAndTo 表示起点和目的地的坐标
-        RouteSearch.FromAndTo fromAndTo = new RouteSearch.FromAndTo(start, end);
-        //drivingMode 驾驶模式  ：例如躲避拥堵  不走高速  速度优先等等
-        RouteSearch.DriveRouteQuery query = new RouteSearch.DriveRouteQuery(fromAndTo, 0, null, null, "");
-        routeSearch.calculateDriveRouteAsyn(query);
 
     }
 }

@@ -7,10 +7,11 @@ import java.util.List;
  */
 public class StartAcceptanceBean {
 
+
     /**
      * code : 200
      * msg : ok
-     * data : {"lista":[{"routecode":"C200","routeclaim":"新街口街道","ingnum":"0.23","position":"路面","type":"裂缝","area":"12","images":"123"}],"listb":{"id":2,"images":"http://image.baidu.com/search/detail?ct=503316480&z=undefined&tn=baiduimagedetail&ipn=d&word=%E5%9B%BE%E7%89%87&step_word=&ie=utf-8&in=&cl=2&lm=-1&st=undefined&hd=undefined&latest=undefined&copyright=undefined&cs=764856423,3994964277&os=3075148465,762977515&simid=30514997,583073039&pn=5&rn=1&di=75852428410&ln=1575&fr=&fmq=1543983548993_R&fm=&ic=undefined&s=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&is=0,0&istype=0&ist=&jit=&bdtype=0&spn=0&pi=0&gsm=0&objurl=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01f9ea56e282836ac72531cbe0233b.jpg%402o.jpg&rpstart=0&rpnum=0&selected_tags=0&adpicid=0","backup":"ffgcv df"}}
+     * data : {"list":[{"routecode":"Xingjhn","routeclaim":"克拉玛依 - 海南","ingnum":"892","position":"1","type":"2","area":"20","images":"11.png","id":1,"backup":"23"}]}
      */
 
     private int code;
@@ -42,75 +43,27 @@ public class StartAcceptanceBean {
     }
 
     public static class DataBean {
-        /**
-         * lista : [{"routecode":"C200","routeclaim":"新街口街道","ingnum":"0.23","position":"路面","type":"裂缝","area":"12","images":"123"}]
-         * listb : {"id":2,"images":"http://image.baidu.com/search/detail?ct=503316480&z=undefined&tn=baiduimagedetail&ipn=d&word=%E5%9B%BE%E7%89%87&step_word=&ie=utf-8&in=&cl=2&lm=-1&st=undefined&hd=undefined&latest=undefined&copyright=undefined&cs=764856423,3994964277&os=3075148465,762977515&simid=30514997,583073039&pn=5&rn=1&di=75852428410&ln=1575&fr=&fmq=1543983548993_R&fm=&ic=undefined&s=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&is=0,0&istype=0&ist=&jit=&bdtype=0&spn=0&pi=0&gsm=0&objurl=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01f9ea56e282836ac72531cbe0233b.jpg%402o.jpg&rpstart=0&rpnum=0&selected_tags=0&adpicid=0","backup":"ffgcv df"}
-         */
+        private List<ListBean> list;
 
-        private ListbBean listb;
-        private List<ListaBean> lista;
-
-        public ListbBean getListb() {
-            return listb;
+        public List<ListBean> getList() {
+            return list;
         }
 
-        public void setListb(ListbBean listb) {
-            this.listb = listb;
+        public void setList(List<ListBean> list) {
+            this.list = list;
         }
 
-        public List<ListaBean> getLista() {
-            return lista;
-        }
-
-        public void setLista(List<ListaBean> lista) {
-            this.lista = lista;
-        }
-
-        public static class ListbBean {
+        public static class ListBean {
             /**
-             * id : 2
-             * images : http://image.baidu.com/search/detail?ct=503316480&z=undefined&tn=baiduimagedetail&ipn=d&word=%E5%9B%BE%E7%89%87&step_word=&ie=utf-8&in=&cl=2&lm=-1&st=undefined&hd=undefined&latest=undefined&copyright=undefined&cs=764856423,3994964277&os=3075148465,762977515&simid=30514997,583073039&pn=5&rn=1&di=75852428410&ln=1575&fr=&fmq=1543983548993_R&fm=&ic=undefined&s=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&is=0,0&istype=0&ist=&jit=&bdtype=0&spn=0&pi=0&gsm=0&objurl=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01f9ea56e282836ac72531cbe0233b.jpg%402o.jpg&rpstart=0&rpnum=0&selected_tags=0&adpicid=0
-             * backup : ffgcv df
-             */
-
-            private int id;
-            private String images;
-            private String backup;
-
-            public int getId() {
-                return id;
-            }
-
-            public void setId(int id) {
-                this.id = id;
-            }
-
-            public String getImages() {
-                return images;
-            }
-
-            public void setImages(String images) {
-                this.images = images;
-            }
-
-            public String getBackup() {
-                return backup;
-            }
-
-            public void setBackup(String backup) {
-                this.backup = backup;
-            }
-        }
-
-        public static class ListaBean {
-            /**
-             * routecode : C200
-             * routeclaim : 新街口街道
-             * ingnum : 0.23
-             * position : 路面
-             * type : 裂缝
-             * area : 12
-             * images : 123
+             * routecode : Xingjhn
+             * routeclaim : 克拉玛依 - 海南
+             * ingnum : 892
+             * position : 1
+             * type : 2
+             * area : 20
+             * images : 11.png
+             * id : 1
+             * backup : 23
              */
 
             private String routecode;
@@ -120,6 +73,8 @@ public class StartAcceptanceBean {
             private String type;
             private String area;
             private String images;
+            private int id;
+            private String backup;
 
             public String getRoutecode() {
                 return routecode;
@@ -175,6 +130,22 @@ public class StartAcceptanceBean {
 
             public void setImages(String images) {
                 this.images = images;
+            }
+
+            public int getId() {
+                return id;
+            }
+
+            public void setId(int id) {
+                this.id = id;
+            }
+
+            public String getBackup() {
+                return backup;
+            }
+
+            public void setBackup(String backup) {
+                this.backup = backup;
             }
         }
     }

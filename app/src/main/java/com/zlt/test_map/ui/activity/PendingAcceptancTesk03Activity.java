@@ -64,14 +64,14 @@ public class PendingAcceptancTesk03Activity extends BaseActivity {
         String routecode = intent.getStringExtra("routecode");
         String type = intent.getStringExtra("type");
         String images = intent.getStringExtra("images");
-//        String backup = intent.getStringExtra("backup");
+        String backup = intent.getStringExtra("backup");
         tvArea.setText(area);
         tvIngnum.setText(ingnum);
         tvPosition.setText(position1);
         tvRouteclaim.setText(routeclaim);
         tvRoutecode.setText(routecode);
         tvType.setText(type);
-//        edbackup.setText(backup);
+        edbackup.setText(backup);
 
     }
 
